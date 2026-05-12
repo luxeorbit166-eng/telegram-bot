@@ -4,4 +4,4 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-CMD ["python", "video_bot_v41_fixed.py"]
+CMD ["python", "video_bot_v41_fixed.py
