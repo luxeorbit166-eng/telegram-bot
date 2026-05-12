@@ -1,2 +1,8 @@
 [phases.setup]
 nixPkgs = ["ffmpeg", "python311"]
+
+[phases.install]
+cmds = ["pip install python-telegram-bot[job-queue] yt-dlp"]
+
+[start]
+cmd = "python video_bot_v41.py"
