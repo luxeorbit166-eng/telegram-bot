@@ -182,9 +182,143 @@ SCENARIOS = [
     "ভুল বোঝাবুঝির পর", "দূরে থাকার কষ্ট", "পরীক্ষার আগের রাত",
 ]
 
+# ── Local script templates (API ছাড়া fallback) ──
+_LOCAL_TEMPLATES = [
+    # ভালোবাসা / কষ্টের
+    {
+        "hook": "রাত ৩টায় তুমি আবার মেসেজ দিলে... কেন? 💔",
+        "messages": [
+            {"side":"left",  "text":"তুমি ঘুমাও নাই?",           "time":"03:12"},
+            {"side":"right", "text":"না। তোমার কথা মনে পড়ছে",    "time":"03:13"},
+            {"side":"left",  "text":"কেন এখন বলছ?",              "time":"03:14"},
+            {"side":"right", "text":"কারণ রাতে সত্যিটা বলতে ভয় লাগে না","time":"03:15"},
+            {"side":"left",  "text":"কী সত্যি?",                  "time":"03:16"},
+            {"side":"right", "text":"তোমাকে ছাড়া ঘুম আসে না আমার","time":"03:17"},
+            {"side":"left",  "text":"আমিও ঘুমাই নি 💙",           "time":"03:18"},
+            {"side":"right", "text":"তাহলে আর দেরি কেন? 😔💔",    "time":"03:19"},
+        ],
+        "caption":"রাত ৩টায় একটা সত্যিকারের কথোপকথন... 💔 তোমারও কি এমন রাত আসে?",
+        "hashtags":"#ভালোবাসা #রাত #কষ্ট #viral #reels #foryou #বাংলা",
+    },
+    # বিচ্ছেদ / কষ্টের
+    {
+        "hook":"শেষবারের মতো কথা বলা যায়? 😢",
+        "messages":[
+            {"side":"left",  "text":"একটু কথা বলবে?",             "time":"22:05"},
+            {"side":"right", "text":"বলো",                         "time":"22:06"},
+            {"side":"left",  "text":"তুমি কি ভালো আছ?",           "time":"22:07"},
+            {"side":"right", "text":"তোমাকে ছাড়া ভালো থাকা কঠিন","time":"22:08"},
+            {"side":"left",  "text":"আমিও একই অবস্থায়",           "time":"22:09"},
+            {"side":"right", "text":"তাহলে কেন আলাদা হলাম?",       "time":"22:10"},
+            {"side":"left",  "text":"জানি না। হয়তো ভুল ছিল",      "time":"22:11"},
+            {"side":"right", "text":"হয়তো... goodbye 💔",          "time":"22:12"},
+        ],
+        "caption":"বিচ্ছেদের পরে শেষ কথোপকথন — এটা পড়ে কার কথা মনে পড়ল? 💔",
+        "hashtags":"#বিচ্ছেদ #কষ্ট #viral #reels #foryou #বাংলা",
+    },
+    # বন্ধুত্ব / মিষ্টি
+    {
+        "hook":"সবচেয়ে ভালো বন্ধু মানে এটাই 🤝",
+        "messages":[
+            {"side":"left",  "text":"কী করছিস?",                  "time":"18:30"},
+            {"side":"right", "text":"তোর কথা ভাবছিলাম",           "time":"18:31"},
+            {"side":"left",  "text":"আমার কথা কেন?",              "time":"18:32"},
+            {"side":"right", "text":"কারণ তুই আমার সেরা মানুষ",   "time":"18:33"},
+            {"side":"left",  "text":"বাদ দে এসব 😂",              "time":"18:34"},
+            {"side":"right", "text":"সত্যি বলছি। তুই না থাকলে কী করতাম","time":"18:35"},
+            {"side":"left",  "text":"আমিও তোকে ছাড়া কল্পনা করতে পারি না","time":"18:36"},
+            {"side":"right", "text":"এই বন্ধুত্ব চিরকাল 🤝❤️",    "time":"18:37"},
+        ],
+        "caption":"সত্যিকারের বন্ধুত্ব এরকমই হয় 🤝 তোমার বেস্ট ফ্রেন্ডকে ট্যাগ করো!",
+        "hashtags":"#বন্ধুত্ব #friendship #viral #reels #foryou #বাংলা",
+    },
+    # স্কুল জীবন / রোমান্টিক
+    {
+        "hook":"ক্লাসের সেই মেয়েটাকে আজও ভুলতে পারি না 😍",
+        "messages":[
+            {"side":"left",  "text":"পরীক্ষার নোট পাঠাবে?",       "time":"20:15"},
+            {"side":"right", "text":"তুমি তো ক্লাসে ছিলে!",       "time":"20:16"},
+            {"side":"left",  "text":"ছিলাম, কিন্তু তোমার দিকে তাকিয়ে ছিলাম 😅","time":"20:17"},
+            {"side":"right", "text":"কী বললে! 😳",                 "time":"20:18"},
+            {"side":"left",  "text":"সত্যি বলছি। তোমাকে দেখলে পড়া মাথায় ঢোকে না","time":"20:19"},
+            {"side":"right", "text":"পাগল হয়েছ নাকি 😅",          "time":"20:20"},
+            {"side":"left",  "text":"একটু হয়েছি, তোমার জন্য 💙",  "time":"20:21"},
+            {"side":"right", "text":"নোট পরে দেব... এখন কথা বলো 😊","time":"20:22"},
+        ],
+        "caption":"স্কুলের প্রেমটা এরকমই নির্দোষ ছিল 😍 তোমারও কি এমন স্মৃতি আছে?",
+        "hashtags":"#স্কুলজীবন #ভালোবাসা #viral #reels #foryou #বাংলা",
+    },
+    # ভুল বোঝাবুঝি / ঝগড়া থেকে মিলন
+    {
+        "hook":"ঝগড়ার পর প্রথম মেসেজ পাঠানোটাই সবচেয়ে কঠিন 😔",
+        "messages":[
+            {"side":"left",  "text":"sorry",                       "time":"14:45"},
+            {"side":"right", "text":"কেন হঠাৎ?",                  "time":"14:47"},
+            {"side":"left",  "text":"কারণ তোমাকে miss করছি",      "time":"14:48"},
+            {"side":"right", "text":"ঝগড়া করে miss করো?",         "time":"14:49"},
+            {"side":"left",  "text":"তোমার সাথে ঝগড়াটাও ভালো লাগে","time":"14:50"},
+            {"side":"right", "text":"পাগল 😂",                    "time":"14:51"},
+            {"side":"left",  "text":"তোমার পাগল 😊",              "time":"14:52"},
+            {"side":"right", "text":"ঠিক আছে, ক্ষমা করলাম ❤️",    "time":"14:53"},
+        ],
+        "caption":"ঝগড়ার পর 'sorry' লেখাটাই সবচেয়ে কঠিন কিন্তু সবচেয়ে সুন্দরও 💕",
+        "hashtags":"#ভালোবাসা #ঝগড়া #viral #reels #foryou #বাংলা",
+    },
+    # একাকীত্ব
+    {
+        "hook":"একা থাকতে থাকতে নিজেই নিজের শত্রু হয়ে যাই... 🌙",
+        "messages":[
+            {"side":"left",  "text":"তুমি কি কখনো একা অনুভব করো?","time":"23:30"},
+            {"side":"right", "text":"সবসময়। মানুষের মাঝেও",       "time":"23:31"},
+            {"side":"left",  "text":"আমিও",                       "time":"23:32"},
+            {"side":"right", "text":"তাহলে আমরা দুজন একা একসাথে","time":"23:33"},
+            {"side":"left",  "text":"এটা কি ভালো না খারাপ?",      "time":"23:34"},
+            {"side":"right", "text":"জানি না। কিন্তু তোমার সাথে কম একা লাগে","time":"23:35"},
+            {"side":"left",  "text":"আমারও 🌙",                   "time":"23:36"},
+            {"side":"right", "text":"তাহলে আর একা না আমরা 💫",    "time":"23:37"},
+        ],
+        "caption":"একাকীত্বও সুন্দর হতে পারে যদি সঠিক মানুষ পাশে থাকে 🌙",
+        "hashtags":"#একাকীত্ব #রাত #viral #reels #foryou #বাংলা",
+    },
+]
+
+def _local_script(topic: str, mood: str, style: str, scenario: str) -> str:
+    """API ছাড়া local template দিয়ে স্ক্রিপ্ট বানাও"""
+    t = random.choice(_LOCAL_TEMPLATES)
+    is_wa = style == "WhatsApp"
+    chat_lines = []
+    base_h = random.randint(8, 22)
+    base_m = random.randint(0, 45)
+    for i, m in enumerate(t["messages"]):
+        mn = (base_m + i * random.randint(1, 3)) % 60
+        hr = base_h if mn >= base_m else (base_h + 1) % 24
+        time_str = f"{hr:02d}:{mn:02d}"
+        side = m["side"]
+        text = m["text"]
+        if side == "right":
+            tick = " ✓✓" if is_wa else " ✓"
+            chat_lines.append(f"{'':>20}{text}\n{'':>25}{time_str}{tick}")
+        else:
+            chat_lines.append(f"{text}\n  {time_str}")
+
+    chat_str = "\n\n".join(chat_lines)
+    return (
+        f"✨ *স্ক্রিপ্ট তৈরি!*  _{style} স্টাইল_ _(Local)_\n"
+        f"📍 _{scenario}_\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"💡 *হুক:*\n_{t['hook']}_\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"💬 *চ্যাট স্ক্রিপ্ট:*\n\n"
+        f"```\n{chat_str}\n```\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"📝 *ক্যাপশন:*\n{t['caption']}\n\n"
+        f"#️⃣ *হ্যাশট্যাগ:*\n{t['hashtags']}"
+    )
+
 async def generate_script(topic: str, mood: str, style: str) -> str:
     """Gemini API দিয়ে স্ক্রিপ্ট বানাও"""
     import urllib.request as req
+    import urllib.error
     scenario = random.choice(SCENARIOS)
     seed = uuid.uuid4().hex[:8]
 
@@ -218,44 +352,76 @@ async def generate_script(topic: str, mood: str, style: str) -> str:
 
 নিয়ম: সব কথ্য বাংলায়, {scenario} পরিস্থিতি অনুযায়ী স্বাভাবিক গল্প, শেষটা {mood} হবে।"""
 
+    # API key না থাকলে সরাসরি local fallback
+    no_key = (not GEMINI_KEY or GEMINI_KEY == "এখানে_GEMINI_KEY_বসান" or len(GEMINI_KEY) < 20)
+    if no_key:
+        logger.info("No Gemini key — using local script template")
+        return _local_script(topic, mood, style, scenario)
+
     try:
         payload = json.dumps({
             "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 1.0, "maxOutputTokens": 1000}
+            "generationConfig": {"temperature": 1.0, "maxOutputTokens": 1500}
         }).encode()
 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_KEY}"
-        request = req.Request(url, data=payload,
+        api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}"
+        request = req.Request(api_url, data=payload,
             headers={"Content-Type": "application/json"}, method="POST")
 
-        with req.urlopen(request, timeout=30) as resp:
-            data = json.loads(resp.read())
+        try:
+            with req.urlopen(request, timeout=45) as resp:
+                resp_data = json.loads(resp.read())
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode("utf-8", errors="replace")
+            logger.error("Gemini HTTP %s — falling back to local", e.code)
+            return _local_script(topic, mood, style, scenario)
+        except urllib.error.URLError as e:
+            logger.error("Gemini URL error: %s — falling back to local", e.reason)
+            return _local_script(topic, mood, style, scenario)
 
-        if "candidates" not in data:
-            err_msg = data.get("error", {}).get("message", "Unknown error")
-            logger.error("Gemini API error: %s", err_msg)
-            return f"❌ API সমস্যা: {err_msg[:100]}\n\nনতুন Key লাগান।"
+        if "candidates" not in resp_data:
+            logger.error("Gemini no candidates — falling back to local")
+            return _local_script(topic, mood, style, scenario)
 
-        raw = data["candidates"][0]["content"]["parts"][0]["text"]
-        raw = raw.replace("```json","").replace("```","").strip()
-        parsed = json.loads(raw)
+        raw = resp_data["candidates"][0]["content"]["parts"][0]["text"]
+
+        # JSON বের করো — ```json ... ``` বা plain JSON যেভাবেই থাকুক
+        raw = raw.strip()
+        if "```" in raw:
+            raw = re.sub(r"```(?:json)?", "", raw).replace("```", "").strip()
+
+        json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+        if not json_match:
+            logger.error("No JSON in Gemini response — falling back to local")
+            return _local_script(topic, mood, style, scenario)
+
+        try:
+            parsed = json.loads(json_match.group())
+        except json.JSONDecodeError:
+            logger.error("JSON parse error — falling back to local")
+            return _local_script(topic, mood, style, scenario)
+
+        if "messages" not in parsed or "hook" not in parsed:
+            return _local_script(topic, mood, style, scenario)
 
         is_wa = style == "WhatsApp"
         chat_lines = []
         for m in parsed["messages"]:
-            side = m["side"]
-            text = m["text"]
-            t    = m["time"]
+            side = m.get("side", "left")
+            text = m.get("text", "")
+            t    = m.get("time", "")
             if side == "right":
                 tick = " ✓✓" if is_wa else " ✓"
-                chat_lines.append(f"{'':>25}{text}\n{'':>30}{t}{tick}")
+                chat_lines.append(f"{'':>20}{text}\n{'':>25}{t}{tick}")
             else:
                 chat_lines.append(f"{text}\n  {t}")
 
         chat_str = "\n\n".join(chat_lines)
+        caption  = parsed.get("caption", "")
+        hashtags = parsed.get("hashtags", f"#{topic} #বাংলা #viral")
 
         return (
-            f"✨ *স্ক্রিপ্ট তৈরি!*  _{style} স্টাইল_\n"
+            f"✨ *স্ক্রিপ্ট তৈরি!*  _{style} স্টাইল_ _(AI)_\n"
             f"📍 _{scenario}_\n\n"
             f"━━━━━━━━━━━━━━━━━━━━━━━\n"
             f"💡 *হুক:*\n_{parsed['hook']}_\n\n"
@@ -263,13 +429,13 @@ async def generate_script(topic: str, mood: str, style: str) -> str:
             f"💬 *চ্যাট স্ক্রিপ্ট:*\n\n"
             f"```\n{chat_str}\n```\n\n"
             f"━━━━━━━━━━━━━━━━━━━━━━━\n"
-            f"📝 *ক্যাপশন:*\n{parsed['caption']}\n\n"
-            f"#️⃣ *হ্যাশট্যাগ:*\n{parsed['hashtags']}"
+            f"📝 *ক্যাপশন:*\n{caption}\n\n"
+            f"#️⃣ *হ্যাশট্যাগ:*\n{hashtags}"
         )
 
     except Exception as e:
-        logger.warning("script_gen error: %s", e)
-        return f"❌ সমস্যা: `{str(e)[:150]}`\n\nআবার চেষ্টা করুন।"
+        logger.exception("script_gen unexpected error — falling back to local")
+        return _local_script(topic, mood, style, scenario)
 
 
 def script_topic_menu():
@@ -497,46 +663,85 @@ def process_enhance(inp):
 # ════════════════════════════════════════════
 # 🎵 VOCAL REMOVER — Music & Voice Separator
 # ════════════════════════════════════════════
+def _is_stereo(path):
+    """ফাইলটা stereo কিনা চেক করো"""
+    try:
+        r = subprocess.run(
+            ["ffprobe","-v","error","-select_streams","a:0",
+             "-show_entries","stream=channels","-of","csv=p=0", str(path)],
+            capture_output=True, text=True, timeout=15)
+        ch = r.stdout.strip()
+        return ch == "2"
+    except Exception:
+        return False
+
 def process_vocal_remove(inp):
-    """অডিও থেকে কথা সরিয়ে শুধু মিউজিক রাখো"""
+    """অডিও থেকে কথা সরিয়ে শুধু মিউজিক রাখো (ও উল্টোটা)"""
     out_music = tmp_path(".mp3")
     out_vocal = tmp_path(".mp3")
 
-    # Center channel cancel — vocal remove (stereo trick)
-    # Music (instrumental) — কথা বাদ
+    stereo = _is_stereo(inp)
+
+    if stereo:
+        # Stereo: center channel cancellation — vocal center-panned থাকলে বাদ পড়বে
+        af_music = (
+            "pan=stereo|c0=c0-c1|c1=c1-c0,"
+            "loudnorm=I=-14:TP=-1:LRA=11"
+        )
+        # Vocal: center channel extract
+        af_vocal = (
+            "pan=mono|c0=0.5*c0+0.5*c1,"
+            "loudnorm=I=-14:TP=-1:LRA=11"
+        )
+    else:
+        # Mono: EQ দিয়ে vocal frequency কাট করো (800Hz–3500Hz)
+        af_music = (
+            "equalizer=f=1000:width_type=o:width=3:g=-12,"
+            "equalizer=f=2500:width_type=o:width=2:g=-10,"
+            "loudnorm=I=-14:TP=-1:LRA=11"
+        )
+        # Vocal: উল্টো — mid frequency boost
+        af_vocal = (
+            "equalizer=f=1000:width_type=o:width=3:g=6,"
+            "equalizer=f=2500:width_type=o:width=2:g=5,"
+            "highpass=f=200,lowpass=f=6000,"
+            "loudnorm=I=-14:TP=-1:LRA=11"
+        )
+
     cmd_music = [
-        "ffmpeg", "-y", "-i", inp,
-        "-af", "pan=stereo|c0=c0-c1|c1=c1-c0,loudnorm=I=-14:TP=-1:LRA=11",
-        "-c:a", "libmp3lame", "-b:a", "192k",
+        "ffmpeg","-y","-i", inp,
+        "-af", af_music,
+        "-c:a","libmp3lame","-b:a","192k",
         out_music
     ]
-    # Vocal only — মিউজিক বাদ (center channel extract)
     cmd_vocal = [
-        "ffmpeg", "-y", "-i", inp,
-        "-af", "pan=mono|c0=0.5*c0+0.5*c1,loudnorm=I=-14:TP=-1:LRA=11",
-        "-c:a", "libmp3lame", "-b:a", "192k",
+        "ffmpeg","-y","-i", inp,
+        "-af", af_vocal,
+        "-c:a","libmp3lame","-b:a","192k",
         out_vocal
     ]
+
     ok_m, err_m = run_ffmpeg(cmd_music)
     ok_v, err_v = run_ffmpeg(cmd_vocal)
+
     return (
         out_music if ok_m else None,
         out_vocal if ok_v else None,
-        err_m or err_v
+        err_m or err_v,
+        stereo,
     )
 
 def process_vocal_remove_video(inp):
     """ভিডিও থেকে অডিও আলাদা করে vocal remove করো"""
-    # আগে ভিডিও থেকে অডিও বের করো
     audio_tmp = tmp_path(".mp3")
     cmd_extract = [
-        "ffmpeg", "-y", "-i", inp,
-        "-vn", "-c:a", "libmp3lame", "-b:a", "192k",
+        "ffmpeg","-y","-i", inp,
+        "-vn","-c:a","libmp3lame","-b:a","192k",
         audio_tmp
     ]
     ok, err = run_ffmpeg(cmd_extract)
     if not ok:
-        return None, None, err
+        return None, None, err, False
     return process_vocal_remove(audio_tmp)
 
 MODE_LABELS = {
@@ -1575,7 +1780,7 @@ async def handle_cb(u, c):
             "dl_help":      "🚀 YouTube · TikTok · Instagram · Facebook · Pinterest\n\nযেকোনো ভিডিওর *link পাঠাও* — ডাউনলোড হয়ে যাবে!",
             "enhance_help": "✨ *Enhance ULTRA*\n\nভিডিও পাঠাও — Cinematic quality তে upgrade করে দেব!",
             "tt_help":      "🔥 *TikTok Mode*\n\nভিডিও পাঠাও — Copyright ও Eligible For You bypass করে দেব!",
-            "vocal_help":   "🎵 *Vocal Remover*\n\nMP3 বা ভিডিও পাঠাও — ২টা ফাইল পাবে:\n🎸 *Music* — শুধু মিউজিক (কথা ছাড়া)\n🎤 *Vocal* — শুধু কথা (মিউজিক ছাড়া)",
+            "vocal_help":   "🎵 *Vocal Remover*\n\nMP3 বা ভিডিও পাঠাও — ২টা ফাইল পাবে:\n🎸 *Music* — শুধু মিউজিক (কথা ছাড়া)\n🎤 *Vocal* — শুধু কথা (মিউজিক ছাড়া)\n\n💡 _Stereo অডিওতে সবচেয়ে ভালো কাজ করে_",
         }
         await q.message.reply_text(hints[data], parse_mode="Markdown"); return
 
@@ -1849,7 +2054,7 @@ async def handle_cb(u, c):
             parse_mode="Markdown")
 
         loop = asyncio.get_running_loop()
-        out_music, out_vocal, err = await loop.run_in_executor(
+        out_music, out_vocal, err, stereo = await loop.run_in_executor(
             executor, process_vocal_remove_video, inp_path)
 
         if not out_music and not out_vocal:
@@ -1857,18 +2062,20 @@ async def handle_cb(u, c):
                 f"❌ *হয়নি*\n\n`{err[:300]}`\n\n💡 MP3 বা ভিডিও ফাইল পাঠান।",
                 parse_mode="Markdown", reply_markup=main_menu()); return
 
+        quality_note = "✅ Stereo — সর্বোচ্চ মান" if stereo else "⚠️ Mono — EQ ফিল্টার ব্যবহৃত"
         await q.message.chat.send_action(ChatAction.UPLOAD_DOCUMENT)
+
         if out_music and Path(out_music).exists():
             with open(out_music, "rb") as f:
                 await q.message.reply_audio(f,
-                    caption="🎸 *Music Only* — কথা ছাড়া শুধু মিউজিক",
+                    caption=f"🎸 *Music Only* — কথা ছাড়া শুধু মিউজিক\n_{quality_note}_",
                     parse_mode="Markdown")
             Path(out_music).unlink(missing_ok=True)
 
         if out_vocal and Path(out_vocal).exists():
             with open(out_vocal, "rb") as f:
                 await q.message.reply_audio(f,
-                    caption="🎤 *Vocal Only* — মিউজিক ছাড়া শুধু কথা",
+                    caption=f"🎤 *Vocal Only* — মিউজিক ছাড়া শুধু কথা\n_{quality_note}_",
                     parse_mode="Markdown")
             Path(out_vocal).unlink(missing_ok=True)
 
